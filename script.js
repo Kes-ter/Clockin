@@ -7,10 +7,14 @@ document.getElementById('read-nfc').addEventListener('click', async () => {
 
             nfc.onreading = event => {
                 const message = event.message;
+                let output = "National ID Data:\n";
+                
                 for (const record of message.records) {
-                    const serial = new TextDecoder().decode(record.data);
-                    handleNFCTap(serial);
+                    output += `Record Type: ${record.recordType}\n`;
+                    output += `MIME Type: ${record.mediaType || "N/A"}\n`;
+                    output += `Data: ${new TextDecoder().decode(record.data)}\n`;
                 }
+                document.getElementById('nfc-output').innerText = output;
             };
         } else {
             alert("NFC is not supported on this device.");
