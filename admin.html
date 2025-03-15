@@ -1,0 +1,40 @@
+
+<!-- Admin Page (admin.html) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container admin-container">
+        <div id="loginPage" class="page active">
+            <h1>Admin Login</h1>
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <button onclick="adminLogin()">Login</button>
+        </div>
+        <div id="adminPanel" class="page">
+            <h1>Admin Panel</h1>
+            <button onclick="logout()">Logout</button>
+            <div class="admin-sections">
+                <div>
+                    <h2>Add New Staff</h2>
+                    <input type="text" id="staffName" placeholder="Staff Name">
+                    <input type="text" id="staffNFC" placeholder="NFC Serial Number">
+                    <button onclick="addStaff()">Add Staff</button>
+                </div>
+                <div>
+                    <h2>Staff History</h2>
+                    <input type="text" id="searchStaff" placeholder="Search by Name or NFC">
+                    <button onclick="searchHistory()">Search</button>
+                    <div id="historyOutput"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
